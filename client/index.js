@@ -1,9 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import Home from './components/Home'
 const App = () => {
+
   return (
-    <div>Hello World</div>
+    <div>
+      <h1>Welcome to Barry's Beer Fridge</h1>
+      <Home></Home>
+    </div>
+
   )
 }
 

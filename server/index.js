@@ -6,7 +6,7 @@ const db = require('./db')
 db.sync()
 
 app.use(express.static(path.join(__dirname, '..', 'dist')))
-
+app.use('/api', require('./api'))
 app.use('*', (req, res, next)=> {
   res.sendFile(path.join(__dirname, '..', 'dist/index.html'))
 })
