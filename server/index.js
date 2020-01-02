@@ -2,8 +2,12 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const db = require('./db')
+const bodyParser = require('body-parser')
 
 db.sync()
+
+app.use(bodyParser.urlencoded({ extended: false, }))
+app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, '..', 'dist')))
 app.use('/api', require('./api'))

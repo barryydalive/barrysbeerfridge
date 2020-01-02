@@ -13,9 +13,12 @@ router.get('/', async (req, res, next)=>{
 
 router.post('/', async (req, res, next)=>{
   try {
+    console.log('hi')
+    console.log('req.body:', req.body)
     const beer = await Beer.create(req.body)
     res.send(beer)
   } catch (err) {
+    console.log('nope')
     next(err)
   }
 })
