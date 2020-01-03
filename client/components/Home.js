@@ -3,6 +3,7 @@ import axios from 'axios'
 import BeerListItem from './BeerListItem'
 import useBeers from '../hooks/useBeers'
 import { BeerContext, } from '../context'
+import AddABeer from './AddABeer'
 const Home = () => {
   // const [ beers, setBeers, ] = useState([])
   const [ beers, setBeers, ] = useBeers()
@@ -22,6 +23,8 @@ const Home = () => {
           <BeerListItem key={beer.name} beer={beer} />
         )}
       </ol>
+      <AddABeer />
+
     </BeerContext.Provider>
   )
 

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext, } from 'react'
 import { useFormik, } from 'formik'
 import axios from 'axios'
+import { BeerContext, } from '../context'
 const addBeer = async (beer) => {
   const res = await axios.post('/api/beers', beer)
   console.log('res.data:', res.data)
@@ -16,12 +17,13 @@ const defaultBeerValues = {
 }
 
 const AddABeer = () => {
-
+  const { setBeers, } = useContext(BeerContext)
   const formik = useFormik({
     initialValues: defaultBeerValues,
-    onSubmit: values => {
+    onSubmit: async values => {
       values.type = values.kind
-      addBeer(values)
+      const newBeer = await addBeer(values)
+      setBeers(prevState => [ ...prevState, newBeer, ])
     },
   })
 

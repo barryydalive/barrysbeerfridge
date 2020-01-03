@@ -16,7 +16,7 @@ const BeerListItem = ({ beer, }) => {
       <p>{brewery}</p>
       <p>{ABV}%</p>
       <p>quantity: {amount}</p>
-      <p>type</p>
+      <p>type: {type}</p>
       <img alt={name}src={img}></img>
       <button onClick={toggleEdit}>edit</button>
     </li>
