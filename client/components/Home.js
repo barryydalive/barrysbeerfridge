@@ -1,9 +1,11 @@
-import React, { useState, useEffect, } from 'react'
+import React, { useEffect, } from 'react'
 import axios from 'axios'
 import BeerListItem from './BeerListItem'
-
+import useBeers from '../hooks/useBeers'
+import { BeerContext, } from '../context'
 const Home = () => {
-  const [ beers, setBeers, ] = useState([])
+  // const [ beers, setBeers, ] = useState([])
+  const [ beers, setBeers, ] = useBeers()
 
   useEffect(() => {
     const getBeers = async () => {
@@ -11,14 +13,16 @@ const Home = () => {
       setBeers(res.data)
     }
     getBeers()
-  }, [])
+  }, [ setBeers, ])
 
   return (
-    <ol>
-      {beers.map(beer =>
-        <BeerListItem key={beer.name} beer={beer} />
-      )}
-    </ol>
+    <BeerContext.Provider value={{ beers, setBeers, }}>
+      <ol>
+        {beers.map(beer =>
+          <BeerListItem key={beer.name} beer={beer} />
+        )}
+      </ol>
+    </BeerContext.Provider>
   )
 
 }

@@ -4,7 +4,7 @@ const { Beer, } = require('../db/models')
 
 router.get('/', async (req, res, next)=>{
   try {
-    const beers = await Beer.findAll()
+    const beers = await Beer.findAll({ order: [ 'id', ], })
     res.send(beers)
   } catch (err) {
     next(err)
@@ -13,9 +13,13 @@ router.get('/', async (req, res, next)=>{
 
 router.post('/', async (req, res, next)=>{
   try {
-    console.log('hi')
-    console.log('req.body:', req.body)
-    const beer = await Beer.create(req.body)
+    const beerToAdd = req.body
+    for (const key in beerToAdd) {
+      if (!beerToAdd[key]) {
+        beerToAdd[key] = undefined
+      }
+    }
+    const beer = await Beer.create(beerToAdd)
     res.send(beer)
   } catch (err) {
     console.log('nope')
@@ -38,6 +42,16 @@ router.get('/:id', async (req, res, next)=>{
     const beer = await Beer.findByPk(req.params.id)
     res.send(beer)
 
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.put('/:id', async(req, res, next)=>{
+  try {
+    const id = req.params.id
+    const [ , [ beer, ], ] = await Beer.update(req.body, { where: { id, }, returning: true, })
+    res.send(beer)
   } catch (err) {
     next(err)
   }
