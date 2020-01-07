@@ -7,7 +7,7 @@ import { BeerContext, } from '../context'
 
 const SelectBeerModal = ({ modalOpen, setModalOpen, selectedBeer, }) => {
   const [ beerAdded, setBeerAdded, ] = useState(false)
-  const { beers, setBeers, } = useContext(BeerContext)
+  const { setBeers, } = useContext(BeerContext)
   const formik = useFormik({ initialValues: { quantity: 0, }, onSubmit: async (values) => {
     selectedBeer.amount = values.quantity
     const addedBeer = await addBeer(selectedBeer)

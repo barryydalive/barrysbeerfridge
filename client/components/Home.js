@@ -37,11 +37,11 @@ const Home = () => {
           <Switch>
 
             <Route exact path='/'>
-              <ol>
+              <ul>
                 {beers.map(beer =>
                   <BeerListItem key={beer.name} beer={beer} />
                 )}
-              </ol>
+              </ul>
               <AddABeer />
             </Route>
             <Route exact path='/search' component={Search} />

@@ -2,15 +2,6 @@ const express = require('express')
 const router = express.Router()
 const { Beer, } = require('../db/models')
 
-router.use('/untappd', (req, res, next) => {
-  try {
-    const code = req.query.code
-    console.log('code:', code)
-    res.sendStatus(200)
-  } catch (err) {
-    console.log(err)
-  }
-})
 router.get('/', async (req, res, next)=>{
   try {
     const beers = await Beer.findAll({ order: [ 'id', ], })
@@ -31,7 +22,6 @@ router.post('/', async (req, res, next)=>{
     const beer = await Beer.create(beerToAdd)
     res.send(beer)
   } catch (err) {
-    console.log('nope')
     next(err)
   }
 })

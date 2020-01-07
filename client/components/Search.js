@@ -16,6 +16,7 @@ const formatBeerFromUntappd = (beerFromUntappd, brewery) => {
     amount: beerFromUntappd.beer_style,
     img: beerFromUntappd.beer_label,
     untappdId: beerFromUntappd.bid,
+    description: beerFromUntappd.beer_description,
   }
   return beer
 }
@@ -26,7 +27,6 @@ const Search = () => {
   const searchUntappd = async (values) => {
     const searchQuery = slugify(values.searchString)
     try {
-      console.log('searchQuery:', searchQuery)
       const res = await axios.get(`/api/untappd?searchQuery=${searchQuery}`)
       const beers = res.data
       setBeers(beers.items)
@@ -36,15 +36,12 @@ const Search = () => {
   }
   const formik = useFormik({
     initialValues: { searchString: '', quantity: 0, },
-    onSubmit: searchUntappd, handleAdd: (values) => {
-      console.log('values:', values)
-    }, })
+    onSubmit: searchUntappd, })
 
   const selectBeer = (beer) => {
     setSelectedBeer(beer)
     setModalOpen(true)
   }
-  console.log('modalOpen:', modalOpen)
   return (
     <>
     <h1>SEARCH</h1>
@@ -62,7 +59,7 @@ const Search = () => {
 
     {beers.map(({ beer, brewery, }) => {
       const formattedBeer = formatBeerFromUntappd(beer, brewery)
-      return <BeerCard key={formattedBeer.untappdId} beer={formattedBeer} onClick={() => selectBeer(formattedBeer)} />
+      return <BeerCard key={formattedBeer.untappdId} beer={formattedBeer} onClick={() => selectBeer(formattedBeer)} viewType='search' />
     })}
     <SelectBeerModal modalOpen={modalOpen} setModalOpen={setModalOpen} selectedBeer={selectedBeer}></SelectBeerModal>
     </>

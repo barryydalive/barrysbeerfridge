@@ -15,6 +15,7 @@ const defaultBeerValues = {
   img: '',
   brewery: '',
   amount: 0,
+  untappdId: null,
 }
 
 const AddABeer = () => {
