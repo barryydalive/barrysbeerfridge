@@ -4,10 +4,19 @@ import Home from './components/Home'
 import styled from 'styled-components'
 import './index.css'
 import { Title, } from './components/styled'
+import { screen, } from './components/styled/colors'
+
+import { createGlobalStyle, } from 'styled-components'
+const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+  a{
+    text-decoration:none;
+  }
+`
 
 const AppDiv = styled.div`
-  background-color: navy;
-  height:100%;
+  background-color: ${screen};
+  min-height:100vh;
   background-repeat:repeat;
 `
 
@@ -15,7 +24,7 @@ const App = () => {
 
   return (
     <AppDiv>
-      <Title>Welcome to Barry's Beer Fridge</Title>
+      <GlobalStyles />
       <Home></Home>
     </AppDiv>
 

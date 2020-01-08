@@ -3,7 +3,7 @@ import axios from 'axios'
 import BeerListItem from './BeerListItem'
 import useBeers from '../hooks/useBeers'
 import { BeerContext, } from '../context'
-import { Fridge, } from './styled'
+import { Fridge, Nav, Title, NavItem, NavText, NavLeft, NavRight, NavCenter, NavImage, } from './styled'
 
 import { HashRouter as Router, Switch, Route, Link, } from 'react-router-dom'
 import Search from './Search'
@@ -24,16 +24,23 @@ const Home = () => {
       <BeerContext.Provider value={{ beers, setBeers, }}>
 
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to='/'> Home</Link>
-              </li>
-              <li>
-                <Link to='/search'>Search</Link>
-              </li>
-            </ul>
-          </nav>
+          <Nav>
+
+            <NavLeft>
+              <Link to='/'><NavImage src={'/memoji.png'} /></Link>
+            </NavLeft>
+
+            <NavCenter>
+              <Title>Welcome to Barry's Beer Fridge</Title>
+            </NavCenter>
+
+            <NavRight>
+              <NavItem>
+                <Link to='/search'><NavText>Add a Beer</NavText></Link>
+              </NavItem>
+            </NavRight>
+
+          </Nav>
 
           <Switch>
 
