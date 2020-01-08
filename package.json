@@ -18,13 +18,15 @@
   },
   "scripts": {
     "start": "node server",
+    "build": "webpack",
     "start-dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
     "start-server": "nodemon server",
     "build-client": "webpack",
     "build-client-watch": "webpack -w",
     "go": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "secrets":"touch secrets.js"
+    "secrets":"touch secrets.js",
+    "postinstall": "touch secrets.js"
   },
   "author": "",
   "license": "ISC",
