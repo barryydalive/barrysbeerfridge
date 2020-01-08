@@ -28,7 +28,7 @@ const BeerCard = ({ beer, onClick, viewType, }) => {
       <CardContainer >
         <CardName><b>{name}</b></CardName>
         <h4>{brewery}</h4>
-        <p>{truncate(description)}</p>
+        {description && <p>{truncate(description)}</p>}
         <CardInfoSection>
           <CardInfoBox>
             <p>{ABV}%</p>
