@@ -10,12 +10,16 @@ const SelectBeerModal = ({ modalOpen, setModalOpen, selectedBeer, }) => {
   const [ beerAdded, setBeerAdded, ] = useState(false)
   const { setBeers, } = useContext(BeerContext)
   const formik = useFormik({ initialValues: { quantity: 0, }, onSubmit: async (values) => {
-    selectedBeer.amount = values.quantity
-    selectedBeer.img = await getBeerImage(selectedBeer.untappdId)
-    console.log('selectedBeer:', selectedBeer)
-    const addedBeer = await addBeer(selectedBeer)
-    setBeerAdded(true)
-    setBeers(prev => [ ...prev, addedBeer, ])
+    try {
+      selectedBeer.amount = values.quantity
+      selectedBeer.img = await getBeerImage(selectedBeer.untappdId)
+      console.log('selectedBeer:', selectedBeer)
+      const addedBeer = await addBeer(selectedBeer)
+      setBeerAdded(true)
+      setBeers(prev => [ ...prev, addedBeer, ])
+    } catch (err) {
+      console.log(err)
+    }
   }, })
   if (beerAdded) { return <Redirect to='/' /> }
   return (
