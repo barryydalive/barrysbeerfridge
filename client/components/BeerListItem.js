@@ -10,10 +10,9 @@ const BeerListItem = ({ beer, }) => {
   }
   if (editMode) { return <EditBeer beer={beer} toggleEdit={toggleEdit} /> }
   return (
-    <li>
-      <BeerCard beer={beer} />
-      <button onClick={toggleEdit}>edit</button>
-    </li>
+    <>
+      <BeerCard beer={beer} onClick={toggleEdit} />
+    </>
   )
 }
 

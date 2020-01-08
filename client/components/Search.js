@@ -3,6 +3,7 @@ import { useFormik, } from 'formik'
 import axios from 'axios'
 import BeerCard from './BeerCard'
 import SelectBeerModal from './SelectBeerModal'
+import { Grid, } from './styled'
 const slugify = (str) => {
   return str.replace(/\s/g, '+')
 }
@@ -24,6 +25,7 @@ const Search = () => {
   const [ beers, setBeers, ] = useState([])
   const [ selectedBeer, setSelectedBeer, ] = useState({})
   const [ modalOpen, setModalOpen, ] = useState(false)
+
   const searchUntappd = async (values) => {
     const searchQuery = slugify(values.searchString)
     try {
@@ -34,6 +36,7 @@ const Search = () => {
       console.log(err)
     }
   }
+
   const formik = useFormik({
     initialValues: { searchString: '', quantity: 0, },
     onSubmit: searchUntappd, })
@@ -56,11 +59,14 @@ const Search = () => {
       />
       <button type='submit'>Search</button>
     </form>
-
-    {beers.map(({ beer, brewery, }) => {
-      const formattedBeer = formatBeerFromUntappd(beer, brewery)
-      return <BeerCard key={formattedBeer.untappdId} beer={formattedBeer} onClick={() => selectBeer(formattedBeer)} viewType='search' />
-    })}
+    <Grid>
+      {beers.map(({ beer, brewery, }) => {
+        const formattedBeer = formatBeerFromUntappd(beer, brewery)
+        return (
+          <BeerCard key={formattedBeer.untappdId} beer={formattedBeer} onClick={() => selectBeer(formattedBeer)} viewType='search' />
+        )
+      })}
+    </Grid>
     <SelectBeerModal modalOpen={modalOpen} setModalOpen={setModalOpen} selectedBeer={selectedBeer}></SelectBeerModal>
     </>
   )

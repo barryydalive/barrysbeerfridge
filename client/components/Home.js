@@ -3,13 +3,15 @@ import axios from 'axios'
 import BeerListItem from './BeerListItem'
 import useBeers from '../hooks/useBeers'
 import { BeerContext, } from '../context'
-import AddABeer from './AddABeer'
+import { Fridge, } from './styled'
+
 import { HashRouter as Router, Switch, Route, Link, } from 'react-router-dom'
 import Search from './Search'
 
 const Home = () => {
   // const [ beers, setBeers, ] = useState([])
   const [ beers, setBeers, ] = useBeers()
+  console.log('beers:', beers)
   useEffect(() => {
     const getBeers = async () => {
       const res = await axios.get('/api/beers')
@@ -37,12 +39,12 @@ const Home = () => {
           <Switch>
 
             <Route exact path='/'>
-              <ul>
+              <Fridge>
                 {beers.map(beer =>
                   <BeerListItem key={beer.name} beer={beer} />
                 )}
-              </ul>
-              <AddABeer />
+              </Fridge>
+              {/* Manual Component to Add A Beer Removed */}
             </Route>
             <Route exact path='/search' component={Search} />
             <Route>Oops wrong link!</Route>

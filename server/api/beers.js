@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const { Beer, } = require('../db/models')
+const untappd = require('../untappd')
+const axios = require('axios')
+const { CLIENTID, CLIENT_SECRET, } = require('../secrets')
 
 router.get('/', async (req, res, next)=>{
   try {
@@ -19,9 +22,11 @@ router.post('/', async (req, res, next)=>{
         beerToAdd[key] = undefined
       }
     }
+
     const beer = await Beer.create(beerToAdd)
     res.send(beer)
   } catch (err) {
+    console.log('err:', err)
     next(err)
   }
 })
