@@ -4,7 +4,7 @@ const path = require('path')
 const db = require('./db')
 const bodyParser = require('body-parser')
 
-if (process.env.NODE_ENV !== 'production') { require('./secrets') }
+if (process.env.NODE_ENV !== 'production') { require('../secrets') }
 
 db.sync()
 
