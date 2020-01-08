@@ -1,9 +1,8 @@
 import axios from 'axios'
 
-const CLIENTID = process.env.CLIENTID
-const CLIENT_SECRET = process.env.CLIENT_SECRET
-
 export default async (untappdId) => {
+  const CLIENTID = process.env.CLIENTID
+  const CLIENT_SECRET = process.env.CLIENT_SECRET
   console.log(CLIENTID)
   console.log('CLIENT_SECRET:', CLIENT_SECRET)
   try {
