@@ -4,6 +4,8 @@ const CLIENTID = process.env.CLIENTID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 
 export default async (untappdId) => {
+  console.log(CLIENTID)
+  console.log('CLIENT_SECRET:', CLIENT_SECRET)
   try {
     const res = await axios.get(`https://api.untappd.com/v4/beer/info/${untappdId}?client_id=${CLIENTID}&client_secret=${CLIENT_SECRET}`)
     const { beer, } = res.data.response
