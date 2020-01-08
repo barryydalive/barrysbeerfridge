@@ -11,7 +11,6 @@ import Search from './Search'
 const Home = () => {
   // const [ beers, setBeers, ] = useState([])
   const [ beers, setBeers, ] = useBeers()
-  console.log('beers:', beers)
   useEffect(() => {
     const getBeers = async () => {
       const res = await axios.get('/api/beers')

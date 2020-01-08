@@ -31,7 +31,6 @@ const Search = () => {
     try {
       const res = await axios.get(`/api/untappd?searchQuery=${searchQuery}`)
       const beers = res.data
-      console.log('res:', res)
       setBeers(beers.items)
     } catch (err) {
       console.log(err)

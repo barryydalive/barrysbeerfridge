@@ -13,7 +13,6 @@ const SelectBeerModal = ({ modalOpen, setModalOpen, selectedBeer, }) => {
     try {
       selectedBeer.amount = values.quantity
       selectedBeer.img = await getBeerImage(selectedBeer.untappdId)
-      console.log('selectedBeer:', selectedBeer)
       const addedBeer = await addBeer(selectedBeer)
       setBeerAdded(true)
       setBeers(prev => [ ...prev, addedBeer, ])

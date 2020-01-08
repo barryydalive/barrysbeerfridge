@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 import Home from './components/Home'
 import styled from 'styled-components'
 import './index.css'
+import { Title, } from './components/styled'
 
 const AppDiv = styled.div`
   background-color: navy;
-  height:100vh;
-  background-size:cover;
+  height:100%;
   background-repeat:repeat;
 `
 
@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <AppDiv>
-      <h1>Welcome to Barry's Beer Fridge</h1>
+      <Title>Welcome to Barry's Beer Fridge</Title>
       <Home></Home>
     </AppDiv>
 
