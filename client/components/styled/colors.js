@@ -1,0 +1,8 @@
+export const screen = '#C5C1C0'
+export const steel = '#0A1612'
+export const denim = '#1A2930'
+export const marigold = '#F7CE3E'
+export const sky = '#7CDBD5'
+export const brightCoral = '#F53240'
+export const golden = '#F9BE02'
+export const aquamarine = '#02C8A7'

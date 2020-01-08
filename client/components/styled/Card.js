@@ -17,9 +17,8 @@ export const Card = styled.div`
 
 export const CardImage = styled.img`
   position: relative;
-  height: 230px;
+  height: 30vh;
   max-width: 100%;
-  margin-bottom: 35px;
   border-top-left-radius: $border-radius-size;
   border-top-right-radius: $border-radius-size;
 `
