@@ -10,8 +10,8 @@ const Beer = db.define('beer', {
     },
   },
   ABV: {
-    type: Sequelize.DECIMAL(10, 2),
-    defaultValue: 0.00,
+    type: Sequelize.DECIMAL(10, 1),
+    defaultValue: 0.0,
   },
   type: {
     type: Sequelize.STRING,
@@ -31,6 +31,12 @@ const Beer = db.define('beer', {
   amount: {
     type: Sequelize.INTEGER,
     defaultValue: 0,
+  },
+  untappdId: {
+    type: Sequelize.INTEGER,
+  },
+  description: {
+    type: Sequelize.TEXT,
   },
 })
 

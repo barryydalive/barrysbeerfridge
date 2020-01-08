@@ -19,10 +19,11 @@ router.post('/', async (req, res, next)=>{
         beerToAdd[key] = undefined
       }
     }
+
     const beer = await Beer.create(beerToAdd)
     res.send(beer)
   } catch (err) {
-    console.log('nope')
+    console.log('err:', err)
     next(err)
   }
 })

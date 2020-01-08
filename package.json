@@ -32,10 +32,16 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "formik": "^2.1.1",
+    "node-untappd": "^0.4.1",
     "pg": "^7.17.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "sequelize": "^5.21.3"
+    "react-pose": "^4.0.10",
+    "react-router-dom": "^5.1.2",
+    "react-truncate": "^2.4.0",
+    "sequelize": "^5.21.3",
+    "styled-components": "^4.4.1",
+    "untappd-js": "^1.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

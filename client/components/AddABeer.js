@@ -2,11 +2,12 @@ import React, { useContext, } from 'react'
 import { useFormik, } from 'formik'
 import axios from 'axios'
 import { BeerContext, } from '../context'
+
 const addBeer = async (beer) => {
   const res = await axios.post('/api/beers', beer)
-  console.log('res.data:', res.data)
   return res.data
 }
+
 const defaultBeerValues = {
   name: '',
   ABV: 0.00,
@@ -14,6 +15,7 @@ const defaultBeerValues = {
   img: '',
   brewery: '',
   amount: 0,
+  untappdId: null,
 }
 
 const AddABeer = () => {
