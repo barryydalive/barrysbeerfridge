@@ -26,6 +26,14 @@ const Search = () => {
   const [ selectedBeer, setSelectedBeer, ] = useState({})
   const [ modalOpen, setModalOpen, ] = useState(false)
 
+  const validate = (values) => {
+    const errors = {}
+    if (!values.searchString) {
+      errors.searchString = 'please enter something to search for'
+    }
+    return errors
+  }
+
   const searchUntappd = async (values) => {
     const searchQuery = slugify(values.searchString)
     try {
@@ -39,7 +47,7 @@ const Search = () => {
 
   const formik = useFormik({
     initialValues: { searchString: '', quantity: 0, },
-    onSubmit: searchUntappd, })
+    onSubmit: searchUntappd, validate, })
 
   const selectBeer = (beer) => {
     setSelectedBeer(beer)

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { denim, marigold, sky, brightCoral, steel, } from './colors'
+import { steel, } from './colors'
 
 export const Nav = styled.nav`
-  color: ${steel};
   display:flex;
   justify-content:space-evenly;
   height:10vh;
+  background-color: ${steel};
 `
 export const NavItem = styled.div`
   padding-right: 5px;

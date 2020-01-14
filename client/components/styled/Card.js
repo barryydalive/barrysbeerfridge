@@ -9,6 +9,7 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: auto;
+  margin-bottom: 1.5vh;
   border-radius: $border-radius-size + 5;
   position: relative;
   text-align: center;
