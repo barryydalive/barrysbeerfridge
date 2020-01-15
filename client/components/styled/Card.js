@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const Card = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: '0.3s;
-  width: 300px;
+  height: 60vh;
+  width: 18vw;
   display:  flex;
-  flex-wrap:wrap;
   flex-direction: column;
-  justify-content: space-between;
   margin: auto;
   margin-bottom: 1.5vh;
+  margin-right: 1vw;
   border-radius: $border-radius-size + 5;
   position: relative;
   text-align: center;
@@ -18,7 +18,7 @@ export const Card = styled.div`
 
 export const CardImage = styled.img`
   position: relative;
-  height: 30vh;
+  height: 40%;
   max-width: 100%;
   border-top-left-radius: $border-radius-size;
   border-top-right-radius: $border-radius-size;
@@ -28,11 +28,16 @@ export const CardName = styled.h4`
   color: black;
   font-weight: 900;
   margin-bottom: 5px;
+  margin-top: 5px;
 `
 
 export const CardInfoSection = styled.div`
   background-color: lightgrey;
   display:flex;
+  position: absolute;
+  bottom:0px;
+  left:0;
+  width:100%;
 `
 
 export const CardInfoBox = styled.div`
