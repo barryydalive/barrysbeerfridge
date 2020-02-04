@@ -4,7 +4,7 @@ import Home from './components/Home'
 import styled from 'styled-components'
 import './index.css'
 import { Title, } from './components/styled'
-import { screen, } from './components/styled/colors'
+import { screen, secondary, } from './components/styled/colors'
 
 import { createGlobalStyle, } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
 `
 
 const AppDiv = styled.div`
-  background-color: ${screen};
+  background-color: ${secondary};
   min-height:100vh;
   background-repeat:repeat;
 `

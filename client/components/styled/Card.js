@@ -1,10 +1,12 @@
 import styled from 'styled-components'
+import { lightBackground, } from './colors'
 
 export const Card = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: '0.3s;
   height: 60vh;
   width: 18vw;
+  max-width: 275px;
   display:  flex;
   flex-direction: column;
   margin: auto;
@@ -13,12 +15,13 @@ export const Card = styled.div`
   border-radius: $border-radius-size + 5;
   position: relative;
   text-align: center;
-  background-color: #c4c7ce;
+  background-color: ${lightBackground};
 `
 
 export const CardImage = styled.img`
   position: relative;
   height: 40%;
+  width:100%
   max-width: 100%;
   border-top-left-radius: $border-radius-size;
   border-top-right-radius: $border-radius-size;
@@ -32,7 +35,7 @@ export const CardName = styled.h4`
 `
 
 export const CardInfoSection = styled.div`
-  background-color: lightgrey;
+  background-color: ${lightBackground};
   display:flex;
   position: absolute;
   bottom:0px;
