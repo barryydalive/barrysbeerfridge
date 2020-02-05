@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useContext, } from 'react'
 import { Card, CardContainer, } from './styled'
-import { CardImage, CardName, CardInfoSection, CardInfoBox, } from './styled/Card'
+import { CardImage, CardName, CardInfoSection, CardInfoBox, CardButton, } from './styled/Card'
+import { BeerContext, } from '../context'
+import drinkABeer from './utility/drinkABeer'
+import truncate from './utility/truncate'
+import { Form, } from 'formik'
 const BeerCard = ({ beer, onClick, viewType, }) => {
   const { name, ABV, type, img, brewery, amount, description, } = beer
-  const truncate = (str) => {
-    let i = 150
-    let curr = str[i]
+  const { setBeers, } = useContext(BeerContext)
 
-    while (curr && !curr.match(/[\s.,]/)) {
-      i++
-      curr = str[i]
-    }
-    const truncatedStr = i < str.length ? str.slice(0, i) + '...' : str
-    return truncatedStr
+  const handleDrinkABeer = async (e) => {
+    e.stopPropagation()
+    const updatedBeer = await drinkABeer(beer)
+    setBeers(prev => prev.map(ele => { if (ele.id === updatedBeer.id) { return updatedBeer } return ele }))
   }
+
   return (
     <>
     <Card onClick={onClick}>
@@ -23,7 +24,8 @@ const BeerCard = ({ beer, onClick, viewType, }) => {
         <CardName><b>{name}</b></CardName>
         <h4>{brewery}</h4>
         {description && <p>{truncate(description)}</p>}
-        <CardInfoSection>
+        { viewType !== 'search' && <CardButton onClick={handleDrinkABeer}>Drink One</CardButton>
+        }        <CardInfoSection>
           <CardInfoBox>
             <p>{ABV}%</p>
           </CardInfoBox>

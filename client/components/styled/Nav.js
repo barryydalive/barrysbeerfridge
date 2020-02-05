@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { steel, background, } from './colors'
+import { steel, background, button, } from './colors'
+import posed from 'react-pose'
 
 export const Nav = styled.nav`
   display:flex;
@@ -12,13 +13,30 @@ export const NavItem = styled.div`
   padding-left: 5px;
 `
 export const NavText = styled.p`
-  color: white;
+  color:white;
   font-size: 2vh;
   font-family:playfair display;
   text-transform: uppercase;
+  &:hover{
+    color: ${button}
+  }
 `
 
-export const NavImage = styled.img`
+export const NavImage = styled(posed.img({
+  hoverable: true,
+  init: { rotate: '0deg',
+    transition: {
+      duration: 300,
+      ease: 'linear',
+    }, },
+  hover: {
+    rotate: '360deg',
+    transition: {
+      duration: 500,
+    },
+  },
+
+}))`
   max-height: 100%;
   width:auto;
   object-fit: contain;

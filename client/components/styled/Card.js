@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { lightBackground, } from './colors'
+import { lightBackground, button, } from './colors'
+import posed from 'react-pose'
 
 export const Card = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -49,4 +50,21 @@ export const CardInfoBox = styled.div`
 `
 export const CardContainer = styled.section`
   padding: 2px 16px;
+`
+
+export const CardButton = styled(posed.button({
+  hoverable: true,
+  init: { scale: 1, },
+  hover: { scale: 1.1, },
+}))`
+  border:none;
+  background-color: ${button};
+  height:10%;
+  color: white;
+  font-family: 'Roboto', monospace;
+  font-weight: 500;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: medium;
+
 `

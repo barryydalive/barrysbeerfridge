@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, } from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
+import { main, } from './colors'
 function useOnClickOutside(ref, handler) {
   useEffect(() => {
     const listener = event => {
@@ -74,6 +75,14 @@ const Modal = styled(posed.div(modalPoses))`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
+  display: flex;
+  min-height: 50vh;
+  flex-wrap: wrap;
+  font-family: 'Roboto', monospace;
+  align-items: center;
+  justify-content: center;
+  background-color: ${main};
+  padding: 10px;
 `
 
 export default function({ isOpen, toggle, children, }) {
