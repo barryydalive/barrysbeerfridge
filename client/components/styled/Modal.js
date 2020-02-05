@@ -68,15 +68,12 @@ const modalPoses = {
 
 const Modal = styled(posed.div(modalPoses))`
   position: fixed;
-  background: white;
   width: 80%;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 2px 4px 0 rgba(50, 50, 93, 0.1);
 `
 
 export default function({ isOpen, toggle, children, }) {
